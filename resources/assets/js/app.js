@@ -6,7 +6,39 @@
  */
 
 require('./bootstrap');
-require('materialize-css')
+
+// bootstrap material design
+require('bootstrap-material-design');
+$.material.init();
+// bootstrap material design
+
+// Owl Carousel
+require('owl.carousel');
+// carousel home page
+$('.owl-carousel').owlCarousel({
+  animateOut: 'slideOutDown',
+  animateIn: 'flipInX',
+  smartSpeed: 450,
+  margin: 5,
+  responsive:{
+    0:{
+      items:1
+    },
+    768:{
+      items:2
+    },
+    992:{
+      items:3
+    },
+    1200:{
+      items:4
+    }
+  }
+});
+// Owl Carousel
+
+
+$('[data-toggle="tooltip"]').tooltip();
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

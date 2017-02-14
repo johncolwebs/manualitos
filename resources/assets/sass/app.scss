@@ -1,13 +1,50 @@
 
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(//fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(//fonts.googleapis.com/css?family=Roboto:300,400,500,700);
 @import url(//fonts.googleapis.com/icon?family=Material+Icons);
 
 // Variables
 @import "variables";
 
 // Bootstrap
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-// Materializecss
-@import "node_modules/materialize-css/sass/materialize"
+// Bootstrap Material Design
+@import "node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min";
+@import "node_modules/bootstrap-material-design/dist/css/ripples.min";
+
+// AnimateCss
+@import "node_modules/animate.css/animate.min";
+
+// Owl Carousel
+@import 'node_modules/owl.carousel/dist/assets/owl.carousel.min';
+@import 'node_modules/owl.carousel/dist/assets/owl.theme.green.min';
+
+// Styles
+@import "footer";
+@import "product_card";
+@import "cart";
+
+.navbar{
+  margin-bottom: 0px;
+}
+.navbar .navbar-brand{
+  padding: 10px 15px;
+}
+.pd-top-for-fix-fixed-navbar{
+  padding-top: 60px;
+}
+@media (max-width: 1199px) {
+  .navbar .navbar-brand{
+    padding: 5px 15px;
+  }
+  .pd-top-for-fix-fixed-navbar{
+    padding-top: 50px;
+  }
+}
+.label-pill {
+  padding-right: .6em;
+  padding-left: .6em;
+  border-radius: 10rem;
+}
