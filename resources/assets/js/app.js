@@ -12,6 +12,46 @@ require('bootstrap-material-design');
 $.material.init();
 // bootstrap material design
 
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
+// Bootstrap TreeviewJS
+require('./bootstrap-treeview');
+$('#categories').treed();
+// Bootstrap TreeviewJS
+
+// SewwtAlert2
+const swal = require('sweetalert2');
+
+deleteCat = function (id) {
+  swal.queue([{
+    title: 'Esta seguro?',
+    confirmButtonText: 'Eliminar',
+    text: 'No podrás revertir esto!',
+    showCancelButton: true,
+    cancelButtonText: 'Cancelar',
+    cancelButtonColor: '#d33',
+    showLoaderOnConfirm: true,
+    preConfirm: function () {
+      return new Promise(function (resolve) {
+        $.ajax({
+          method: "DELETE",
+          url: "/admin/categories/" + id,
+          data: { id: id }
+        })
+          .done(function (data) {
+            $('tr.cat_'+id).remove()
+            swal.insertQueueStep(data)
+            resolve()
+          })
+      })
+    }
+  }])
+}
+
 // Owl Carousel
 require('owl.carousel');
 // carousel home page

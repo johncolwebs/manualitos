@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('store.welcome');
 });
 
 Auth::routes();
@@ -20,13 +20,21 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/category', function () {
-    return view('category');
+    return view('store.category');
 });
 
 Route::get('/product', function () {
-    return view('product');
+    return view('store.product');
 });
 
 Route::get('/cart', function () {
-    return view('cart');
+    return view('store.cart');
 });
+
+// Uses Auth Middleware & Admin Namespace
+Route::group(
+  ['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'],
+  function (){
+    Route::get('/', 'HomeController@index');
+    Route::resource('/categories', 'CategoryController', ['except' => 'show']);
+  });
